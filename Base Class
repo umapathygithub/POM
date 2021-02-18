@@ -1,0 +1,169 @@
+package com.flipkart.utils;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Common {
+	public static WebDriver driver= null;
+	
+	public static String browserlaunch (String browser) {
+	switch (browser) {
+	case "chrome":
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\umapathy\\eclipse-workspace\\BaseClass\\Driver\\chromedriver.exe");
+		driver=new ChromeDriver();
+		break;
+	case "firefox":
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\umapathy\\eclipse-workspace\\BaseClass\\Driver\\chromedriver.exe");
+		 driver=new ChromeDriver();
+		break;
+	default:
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\umapathy\\eclipse-workspace\\BaseClass\\Driver\\chromedriver.exe");
+		driver=new ChromeDriver();
+		break;
+	}
+	return browser;
+	}
+
+
+public static void browserMax() {
+	driver.manage().window().maximize();
+}
+public static void loadURL(String url) {
+	driver.get(url);
+}
+
+public static WebElement element(String xpath) {
+WebElement findelement=driver.findElement(By.xpath(xpath));
+return findelement;
+}
+
+
+public static void type(WebElement element, String data) {
+	element.sendKeys(data);
+}
+
+public static WebElement  element(By name) {
+	 return driver.findElement(name);
+}
+
+public static WebElement  element_click(By name) {
+	 return driver.findElement(name);
+}
+
+
+
+}
+
+-----------------------------------------------------------------------
+package com.flipkart.utils;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Common {
+	public static WebDriver driver= null;
+	
+	public static String browserlaunch (String browser) {
+	switch (browser) {
+	case "chrome":
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\umapathy\\eclipse-workspace\\BaseClass\\Driver\\chromedriver.exe");
+		driver=new ChromeDriver();
+		break;
+	case "firefox":
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\umapathy\\eclipse-workspace\\BaseClass\\Driver\\chromedriver.exe");
+		 driver=new ChromeDriver();
+		break;
+	default:
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\umapathy\\eclipse-workspace\\BaseClass\\Driver\\chromedriver.exe");
+		driver=new ChromeDriver();
+		break;
+	}
+	return browser;
+	}
+
+
+public static void browserMax() {
+	driver.manage().window().maximize();
+}
+public static void loadURL(String url) {
+	driver.get(url);
+}
+
+public static WebElement eleme
+
+
+
+
+nt(String xpath) {
+WebElement findelement=driver.findElement(By.xpath(xpath));
+return findelement;
+}
+
+
+public static void type(WebElement element, String data) {
+	element.sendKeys(data);
+}
+
+public static WebElement  element(By name) {
+	 return driver.findElement(name);
+}
+
+public static WebElement  element_click(By name) {
+	 return driver.findElement(name);
+}
+}
+-----------------------------------------------------------------------
+package com.flipkart.pagefactory;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.flipkart.utils.Common;
+
+public class FirstPageFactory extends Common {
+
+ protected static By userName = By.id("email");
+ protected static By password = By.id("pass");
+ protected static By login_button = By.id("u_0_b");
+ 	
+}
+------------------------------------------------------------------------
+package com.flipkart.pageExecution;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.flipkart.pagefactory.FirstPageFactory;
+
+public class FirstPageExecution extends FirstPageFactory{
+	
+	public static void login_username_password() {
+		WebElement userText = element(userName);
+		type(userText,"shahul");
+		WebElement passText = element(password);
+		type(passText,"hameed");
+		WebElement element_found = element_click(login_button);
+		element_found.click();
+	}
+}
+---------------------------------------------------------------------------
+package com.flipkart.pageExecution;
+
+public class Execute extends FirstPageExecution {
+
+	
+	public static void main(String[] args) {
+		login_username_password();
+	}
+}
+----------------------------------------------------------------------------
+
+
+
+
